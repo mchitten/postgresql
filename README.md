@@ -62,8 +62,8 @@ postgresql_cluster_reset: false
 # List of databases to be created (optional)
 # Note: for more flexibility with extensions use the postgresql_database_extensions setting.
 postgresql_databases:
-  - name: foobar
-    owner: baz          # optional; specify the owner of the database
+  - name: "foobar"
+    owner: "baz"        # optional; specify the owner of the database
     hstore: yes         # flag to install the hstore extension on this database (yes/no)
     uuid_ossp: yes      # flag to install the uuid-ossp extension on this database (yes/no)
     citext: yes         # flag to install the citext extension on this database (yes/no)
@@ -74,33 +74,33 @@ postgresql_databases:
 
 # List of database extensions to be created (optional)
 postgresql_database_extensions:
-  - db: foobar
+  - db: "foobar"
     extensions:
-      - hstore
-      - citext
+      - "hstore"
+      - "citext"
 
 # List of users to be created (optional)
 postgresql_users:
-  - name: baz
-    pass: pass
+  - name: "baz"
+    pass: "pass"
     encrypted: no       # denotes if the password is already encrypted.
     state: "present"    # optional; one of 'present', 'absent'
 
 # List of schemas to be created (optional)
 postgresql_schemas:
-  - database: foobar           # database name
-    schema: acme               # schema name
-    state: present
+  - database: "foobar"         # database name
+    schema: "acme"             # schema name
+    state: "present"
 
-  - database: foobar           # database name
-    schema: acme_baz           # schema name
-    owner: baz                 # owner name
-    state: present
+  - database: "foobar"         # database name
+    schema: "acme_baz"         # schema name
+    owner: "baz"               # owner name
+    state: "present"
 
 # List of user privileges to be applied (optional)
 postgresql_user_privileges:
-  - name: baz                   # user name
-    db: foobar                  # database
+  - name: "baz"                 # user name
+    db: "foobar"                # database
     priv: "ALL"                 # privilege string format: example: INSERT,UPDATE/table:SELECT/anothertable:ALL
     role_attr_flags: "CREATEDB" # role attribute flags
 ```
